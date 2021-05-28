@@ -5,10 +5,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "08:17"
+      time: "08:35"
   # Maintain dependencies for docker modules
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
-      time: "08:17"
+      time: "08:35"
