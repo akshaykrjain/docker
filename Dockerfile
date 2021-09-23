@@ -1,5 +1,4 @@
-FROM confluentinc/cp-kafka-rest:latest
-RUN JQ_URL="https://circle-downloads.s3.amazonaws.com/circleci-images/cache/linux-amd64/jq-latest" \
-&& curl --silent --show-error --location --fail --retry 3 --output /usr/bin/jq $JQ_URL 
-RUN chmod +x /usr/bin/jq 
-RUN jq --version
+# syntax=docker/dockerfile:1
+FROM public.ecr.aws/nginx/nginx:latest
+MAINTAINER akshay@mimiro.io
+RUN ["/bin/bash", "-c", "echo \"<title>Hello There!</title><h1>Hello from Great App</h1>\" > /usr/share/nginx/html/index.html"]
