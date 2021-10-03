@@ -15,7 +15,7 @@ on:
 
 env:
   # TODO: Change variable to your image's name.
-  IMAGE_NAME: hello
+  IMAGE_NAME: hello-test
 
 jobs:
   # Run tests.
@@ -42,7 +42,7 @@ jobs:
     needs: test
 
     runs-on: ubuntu-latest
-    if: github.event_name == 'release'
+    if: github.event_name == 'push'
 
     permissions:
       contents: read
@@ -61,9 +61,9 @@ jobs:
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
 
-          docker tag $IMAGE_NAME $IMAGE_ID:latest
-          docker push $IMAGE_ID:latest
-          
-          docker tag $IMAGE_NAME $IMAGE_ID:stable-$GITHUB_RUN_NUMBER
-          docker push $IMAGE_ID:stable-$GITHUB_RUN_NUMBER
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+      
+          docker tag $IMAGE_NAME $IMAGE_ID:unstable-$GITHUB_RUN_NUMBER
+          docker push $IMAGE_ID:unstable-$GITHUB_RUN_NUMBER
       
