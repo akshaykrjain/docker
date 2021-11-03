@@ -14,9 +14,7 @@ on:
   pull_request:
 
 env:
-  # TODO: Change variable to your image's name.
-  IMAGE_NAME: hello-test:${{ github.sha }}
-
+  IMAGE_NAME: docker.pkg.github.com/${{ github.repository }}/hello-test:${{ github.sha }}
 jobs:
   # Run tests.
   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
@@ -72,11 +70,6 @@ jobs:
 
       - name: Push image
         run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-      
-          docker tag $IMAGE_ID $IMAGE_ID
-          docker push $IMAGE_ID
+          docker tag $IMAGE_NAME $IMAGE_NAME
+          docker push $IMAGE_NAME
       
