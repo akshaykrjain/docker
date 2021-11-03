@@ -77,6 +77,6 @@ jobs:
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
       
-          docker tag $IMAGE_NAME $IMAGE_ID:unstable-$GITHUB_RUN_NUMBER
-          docker push $IMAGE_ID:unstable-$GITHUB_RUN_NUMBER
+          docker tag $IMAGE_ID
+          docker push $IMAGE_ID
       
