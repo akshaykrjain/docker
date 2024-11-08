@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Use the official Go 1.19.3 image as a builder stage
-FROM golang:1.19.3-alpine AS builder
+FROM golang:alpine3.20 AS builder
 
 # Install Git
 RUN apk add --no-cache git
