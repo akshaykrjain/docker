@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM caddy:v2.8.0
+FROM public.ecr.aws/docker/library/caddy:latest
 
 # Maintainer information
 LABEL maintainer="akshaykrjain.github.io"
