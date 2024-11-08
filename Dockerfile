@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM caddy:latest
+FROM caddy:v2.8.0
 
 # Maintainer information
 LABEL maintainer="akshaykrjain.github.io"
