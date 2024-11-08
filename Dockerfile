@@ -4,6 +4,8 @@
 FROM golang:alpine3.20 AS builder
 
 # Install Git
+RUN apk update
+RUN apk upgrade
 RUN apk add --no-cache git
 
 # Set the working directory
