@@ -57,7 +57,8 @@ jobs:
         uses : aquasecurity/trivy-action@master
         env:
           TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
-          TRIVY_JAVA_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-java-db  
+          TRIVY_JAVA_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-java-db 
+          TRIVY_DISABLE_VEX_NOTICE: true
         with :
           image-ref: ${{ env.IMAGE_NAME }}
           format: 'table'
